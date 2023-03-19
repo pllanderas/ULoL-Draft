@@ -1,0 +1,226 @@
+body{
+    /* background-color:silver */
+    /* background-image: linear-gradient(#001c48, #000a19); */
+    /* background-color: linear-gradient(#222222,#,#222222); */
+    background-color: #111111;
+
+}
+
+
+.centerStart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.startButton{
+    
+    width: 10%;
+}
+
+h1 {
+    color: #b99855;
+}
+
+#root{
+    height: 100%;
+    width: 70%;
+    min-height: 100vh;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    /* background-color: #000a19; */
+    background-color: #242424;
+
+}
+
+.icon{
+    text-align: center;
+}
+
+#icon {
+    width: auto;
+    border-radius: 15px;
+}
+
+.banImg {
+    width: 50px;
+    border: 2px solid #111111;
+}
+
+.pickImg {
+    width: 100px;
+}
+
+.B {
+    border: 2px solid blue;
+}
+
+.R {
+    border: 2px solid red;
+}
+
+.champImg {
+    width: 100px;
+    padding : 5px;
+    padding-top: 5px;
+}
+
+.selected {
+    outline: 4px solid #916027;
+}
+
+.header{
+    width: 100%;
+    display: flex; 
+    justify-content: space-between;
+    flex-direction: row;
+    flex: 20px;
+}
+
+.bluebans {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.redbans {
+    /* right: 5px; */
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.header2{
+    width: 100%;
+    display: flex; 
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.information {
+    padding-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aliceblue; */
+}
+
+.redT {
+    text-align: right;
+    flex: 1 auto;
+    padding-right: 2%;
+    /* background-color: red; */
+}
+
+.redT2 {
+    width: 70%;
+    right: 0;
+}
+
+.blueT2 {
+    left: 0;
+    width: 70%;
+}
+
+.blueT {
+    text-align: left;
+    flex: 1 auto;
+    padding-left: 2%;
+    /* background-color: aqua; */
+}
+
+.centerJ {
+    text-align: center;
+    flex: 1 auto;
+    /* background-color: green; */
+}
+
+.centerJ2{
+    width: 45%;
+}
+
+.middle {
+    padding-top: 50px;
+    display: flex; 
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+.red {
+    padding-right: 5px;
+}
+
+.blue {
+    padding-left: 5px;
+}
+
+.pick{
+    padding-bottom: 15px;
+}
+
+.center {
+    width: 83%;
+    text-align: center;
+}
+
+input {
+    width: 30%;
+    height: 30px;
+    text-align: center;
+}
+
+.list {
+    background-color: #111111;
+    padding: 10px;
+    overflow-y : scroll;
+    overflow-x: hidden;
+    height: 50%;
+    width: 98%;
+    color: #0000;
+    transition: color 0.2s ease;
+    scrollbar-width: none;
+}
+
+.list:hover {
+    color:darkgrey;
+}
+
+.list::-webkit-scrollbar {
+    width: 8px;
+}
+.list::-webkit-scrollbar-button {
+    height: 0;
+}
+.list::-webkit-scrollbar-track {
+    background-color: #0000;
+}
+.list::-webkit-scrollbar-track-piece {
+    background-color: #0000;
+}
+.list::-webkit-scrollbar-thumb {
+    height: 100px;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 10px;
+}
+.list::-webkit-scrollbar-corner {
+    background-color: #0000;
+}
+
+.input {
+    background-color: #2f2f2f;
+    border: 2px solid#916027;
+    color: #b99855;
+    font-size: 14px;
+    font-weight: bold;
+}

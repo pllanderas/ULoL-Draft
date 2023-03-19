@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="./favicon.ico?">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ULol Draft v2.0</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+    <!-- <header>
+        <h2>Firebase RealTime Chat</h2>
+    </header>
+    
+    <div id="chat">
+        <ul id="messages"></ul>
+        <form id="message-form">
+        <input id="message-input" type="text" />
+        <button id="message-btn" type="submit">Send</button>
+        </form>  
+    </div> -->
+
+    <!-- scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="index.js"></script>
+    <script src="script.js"></script>
+
+
+
+
+    
+    <br>
+    <br>
+    <div id="root">
+        <div class="container">
+
+            <div class="header2 vertical information">
+        
+                <button class="blueButton blueTeam blueT2" onclick="joinBlue()"> Team 1 </button>
+                <button class="spectatorButton spec centerJ2" onclick="joinTotal()"> Espectador </button>
+                <button class="redButton redTeam redT2" onclick="joinRed()"> Team 2 </button>
+                
+                
+            </div>
+
+            <div class="centerStart">    
+                <button class="spectatorButton spec startButton st" onclick="start()"> StartTime </button>
+            </div>
+
+            <div class="centerStart">    
+                <h1 id="phase"></h1>
+            </div>
+            
+            <div id="js_timer">
+                <div id="timer"></div>
+            </div>
+            <div class="header vertical">
+                <div class="bluebans">
+                    <img class="banImg blueTeam blueBan" name="0" src="./img/square.png" onclick="pickBanClick(this)">
+                    <img class="banImg blueTeam blueBan" name="1" src="./img/square.png" onclick="pickBanClick(this)">
+                    <img class="banImg blueTeam blueBan" name="2" src="./img/square.png" onclick="pickBanClick(this)">
+                    <img class="banImg blueTeam blueBan" name="3" src="./img/square.png" onclick="pickBanClick(this)">
+                    <img class="banImg blueTeam blueBan" name="4" src="./img/square.png" onclick="pickBanClick(this)">
+                </div>
+                <div class="icon">
+                    <span target="_blank"><img id="icon" src="./img/UL_Logo.png"></span>
+                </div>
+                <div class="redbans">
+                    <img class="banImg redTeam redBan" name="0" src="./img/square.png" onclick="pickBanClick(this)">
+                    <img class="banImg redTeam redBan" name="1" src="./img/square.png" onclick="pickBanClick(this)">
+                    <img class="banImg redTeam redBan" name="2" src="./img/square.png" onclick="pickBanClick(this)">
+                    <img class="banImg redTeam redBan" name="3" src="./img/square.png" onclick="pickBanClick(this)">
+                    <img class="banImg redTeam redBan" name="4" src="./img/square.png" onclick="pickBanClick(this)">
+                </div>
+            </div>
+            <div class="header2 vertical information">
+                <div class="blueT">
+                    <input class="blueT2 input" type="text" placeholder="Team1"></input>
+                </div>
+                <div class="centerJ">
+                    <input class="centerJ2 input" type="text" placeholder="Jornada"></input>
+                </div>
+                <div class="redT">
+                    <input class="redT2 input" type="text" placeholder="Team2"></input>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="blue picks">
+                    <div class="pick">
+                        <img class="pickImg B blueTeam bluePick" name="0" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                    <div class="pick">
+                        <img class="pickImg B blueTeam bluePick" name="1" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                    <div class="pick">
+                        <img class="pickImg B blueTeam bluePick" name="2" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                    <div class="pick">
+                        <img class="pickImg B blueTeam bluePick" name="3" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                    <div class="pick">
+                        <img class="pickImg B blueTeam bluePick" name="4" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                </div>
+                <div class="center">
+                    <input class="input" type="text" placeholder="Champion name"
+                        oninput="filterListResults(this)"></input>
+                    <div id="list" class="list"></div>
+                </div>
+                <div class="red picks">
+                    <div class="pick">
+                        <img class="pickImg R redTeam redPick" name="0" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                    <div class="pick">
+                        <img class="pickImg R redTeam redPick" name="1" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                    <div class="pick">
+                        <img class="pickImg R redTeam redPick" name="2" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                    <div class="pick">
+                        <img class="pickImg R redTeam redPick" name="3" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                    <div class="pick">
+                        <img class="pickImg R redTeam redPick" name="4" src="./img/square.png" onclick="pickBanClick(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <audio id="myAudio" controls loop>
+        <source src="./assets/League of Legends - Ranked Draft Champion Select Soundtrack -Season 1-4-.mp3" type="audio/mp3">
+    </audio>
+</body>
+
+</html>
