@@ -32,6 +32,8 @@ window.onload = function() {
   backgroundMusic.loop;
   backgroundMusic.volume = 0.10
   playMusic()
+  // console.log()
+  hide_or_show("st","none")
 }
 var timerTime;
 
@@ -141,10 +143,10 @@ function joinRed(){
   hide_or_show("blueButton","none")
 
 }
-// console.log()
-hide_or_show("st","none")
+
 function joinTotal(){
   playMusic()
+  hide_or_show("st","")
 
   playerRef.update({
     team: "spec"
