@@ -59,11 +59,6 @@ load()
 
 
 function pickBanClick(element){
-    // console.log(playerDataTeam)
-    // console.log(playerDataTeam+"Team")
-    // console.log(playerId)
-    // console.log(element.classList)
-    // Cas à traiter
     if(!element.classList.contains(playerDataTeam+"Team")){
         return
     }
@@ -72,20 +67,16 @@ function pickBanClick(element){
         selected = element
         element.classList.add("selected")
     }else if(!element.classList.contains("selected")){     
-        // On clique sur un élément pas sélectionné
         selected.classList.remove("selected") 
         selected = element
         element.classList.add("selected")
     }else if(element.classList.contains("selected")){ 
-        // On clique sur un élément déjà sélectionné
         selected == null
         element.classList.remove("selected")
     }
 }
 
 function imageListClick(element){
-    // Cas à traiter
-    // Si élément sélectionné remplace + griser
     if(selected != null){
         console.log(element)
         var selId = selected.name
@@ -271,7 +262,7 @@ fetchBans.on("value", function (snapshot) {
             updateBlueBans()
         }
 
-        if(phaseDisplay=="picks") {
+        if(control.phaseDisplay=="picks") {
             red = bans.red
             if(red){
                 redBans = red.redBans
@@ -287,7 +278,7 @@ fetchBans.on("value", function (snapshot) {
             updateRedBans()
         }
 
-        if(phaseDisplay=="picks") {
+        if(control.phaseDisplay=="picks") {
             blue = bans.blue
             if(blue){
                 blueBans = blue.blueBans
@@ -329,7 +320,7 @@ fetchPicks.on("value", function (snapshot) {
             updateBluePicks()
         }
 
-        if(phaseDisplay=="game") {
+        if(control.phaseDisplay=="game") {
             red = picks.red
             if(red){
                 redPicks = red.redPicks
@@ -345,7 +336,7 @@ fetchPicks.on("value", function (snapshot) {
             updateRedPicks()
         }
 
-        if(phaseDisplay=="game") {
+        if(control.phaseDisplay=="game") {
             blue = picks.blue
             if(blue){
                 bluePicks = blue.bluePicks
@@ -404,4 +395,13 @@ function markBans(){
             }
         }
     }
+}
+
+function checkMirror(){
+    bluePicks.forEach(bpick => {
+        if (!bpick.includes("square")) {
+            if (redPicks.includes(bpick)) return true
+        }
+    });
+    return false
 }

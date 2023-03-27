@@ -1,0 +1,18 @@
+.popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 2px solid black;
+      z-index: 9999;
+}
+
+.popup p {
+      margin: 0 0 20px 0;
+}
+
+.popup button {
+      margin-right: 10px;
+}

@@ -33,8 +33,8 @@
 
 
 
-
-    
+    <!-- <button onclick="test()">Test</button> -->
+    <!-- <button onclick="openPopup()">Open Popup</button> -->
     <br>
     <br>
     <div id="root">
@@ -43,15 +43,26 @@
             <div class="header2 vertical information">
         
                 <button class="blueButton blueTeam blueT2" onclick="joinBlue()"> Team 1 </button>
-                <button class="spectatorButton spec centerJ2" onclick="joinTotal()"> Espectador </button>
+                <button class="spectatorButton spec centerJ2" onclick="joinTotal()"> Arbitro </button>
                 <button class="redButton redTeam redT2" onclick="joinRed()"> Team 2 </button>
                 
                 
             </div>
 
-            <div class="centerStart">    
-                <button class="spectatorButton spec startButton st" onclick="start()"> StartTime </button>
+            <div class="centerStart">
+                    <button class="spectatorButton spec startButton st" onclick="start()"> StartBans </button>
+                    <label class="spectatorButton spec startButton st" style="margin-left: 10px;"> Ban Timer: </label>
+                    <input class="spectatorButton spec startButton st input" type="number" id="banTime"></input>
             </div>
+            <div class="centerStart">
+                    <button class="spectatorButton spec startButton st" onclick="startPicks()"> StartPicks </button>
+                    <label class="spectatorButton spec startButton st2" style="margin-left: 10px;"> Pick Timer: </label>
+                    <input class="spectatorButton spec startButton st2 input" type="time" id="pickTime"></input>
+            </div>
+            <div class="centerStart">
+                <button class="spectatorButton spec startButton st" onclick="startGame()"> StartGame </button>
+            </div>
+
 
             <div class="centerStart">    
                 <h1 id="phase"></h1>
@@ -132,6 +143,22 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="chat">
+        <!-- messages will display here -->
+        <ul id="messages"></ul>
+    
+        <!-- form to send message -->
+        <form id="message-form">
+            <select id="colorSelector" class="st">
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="all" selected>All</option>
+            </select>              
+            <input id="message-input" type="text" />
+            <button id="message-btn" type="submit">Send</button>
+        </form>
     </div>
 
 
