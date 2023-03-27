@@ -15,8 +15,8 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const fetchBans = db.ref("bans/");
 const fetchPicks = db.ref("picks/");
-// const username = prompt("Nombre:");
-const username = "Name"
+const username = prompt("Nombre:");
+// const username = "Name"
 
 let playerId;
 let playerRef;
