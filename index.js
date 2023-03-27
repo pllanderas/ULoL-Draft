@@ -45,12 +45,14 @@ window.onload = function() {
   timerElement = document.getElementById('timer')
   phaseDisplayElement = document.getElementById("phase")
   backgroundMusic = document.getElementById("myAudio");
-  banTimerInputElement = document.getElementById("banTimer");
-  pickTimerInputElement = document.getElementById("pickTimer");
+  banTimerInputElement = document.getElementById("banTime");
+  pickTimerInputElement = document.getElementById("pickTime");
   chatTeamSelectorElement = document.getElementById("colorSelector");
   document.getElementById("message-form").addEventListener("submit", sendMessage);
   backgroundMusic.loop;
   backgroundMusic.volume = 0.10
+  banTimerInputElement.value = 90
+  pickTimerInputElement.value = 120
   playMusic()
   hide_or_show("st","none")
   hide_or_show("st2","none")
@@ -183,6 +185,8 @@ function joinBlue(){
   noTimer = 0;
   control.phaseDisplay = "Idel"
   hide_or_show("redButton","none")
+  hide_or_show("st","none")
+  hide_or_show("st2","none")
 }
 
 function joinRed(){
@@ -193,6 +197,8 @@ function joinRed(){
   noTimer = 0;
   control.phaseDisplay = "Idel"
   hide_or_show("blueButton","none")
+  hide_or_show("st","none")
+  hide_or_show("st2","none")
 }
 
 function joinTotal(){
@@ -225,12 +231,16 @@ phase.on("value", (snapshot) => {
 
   phaseDisplayElement.innerHTML = "Fase de: " + control.phaseDisplay
 
-  if (p.timerType == 1) {
+  // if (p.timerType == 1) {
+  if (p.value == "bans") {
+    console.log("Fase de baneos")
     noTimer=1;
     timerElement.style.display=""
     timer = setInterval(updateCountdown,1000);
 
-  } else if(p.timer == 2 && noTimer==1){
+  // } else if(p.timerType == 2 && noTimer==1){
+  } else if(p.value == "picks"){
+    console.log("Fase de picks")
     noTimer=2;
     endBans()
     timerElement.style.display=""
@@ -238,10 +248,14 @@ phase.on("value", (snapshot) => {
   }
 
   if(control.phaseDisplay == "mirror") {
+    console.log("Fase de mirror")
+
     alert("Ha ocurrido Mirror Pick, espera a las indicaciones del arbitro")
   }
 
   if (control.phaseDisplay == "game") {
+    console.log("Fase de juego")
+
     endPicks()
   }
 });
@@ -257,10 +271,13 @@ function start(){
 
   //DEBUG Purpose only
   // control.timerTime = 30;
-
+  // console.log(banTimerInputElement.value)
+  control.phaseDisplay = "bans"
+  phaseDisplayElement.innerHTML = "Fase de: " + control.phaseDisplay
+  control.timerTime = banTimerInputElement.value
   //Initialize the phase system
   phase.set({
-    value: "bans", //Phase
+    value: control.phaseDisplay, //Phase
     time: control.timerTime, //Timer time
     timerType: 1 //Timer type: 0 - no timer, 1 - Bans, 2 - Pick, 3 - End
   })
@@ -271,7 +288,8 @@ function start(){
 
 
   //Admin time control
-  control.timerTime += 5
+  control.timerTime = parseInt(control.timerTime) + 5
+  console.log("el timer es: " + control.timerTime)
   timer = setInterval(updateCountdownAdmin,1000);
 
 }
@@ -285,12 +303,6 @@ function updateCountdownAdmin() {
   timerElement.innerHTML = `${min}:${seconds}`
   control.timerTime--;
 
-  //This is to avoid negative in "extra time"
-  // if(control.timerTime <= 0) {
-  //   timerElement.innerHTML= "0:00"
-  // }
-
-  //-5 to have a small margin for sync purposes
   if(control.timerTime <= 0){
     clearInterval(timer);
 
@@ -306,6 +318,8 @@ function updateCountdownAdmin() {
       console.log("Checking Mirror Pick")
 
       mirror = checkMirror()
+      
+      console.log("Mirror: ", mirror)
       // mirror = true
 
       if(mirror) {
@@ -333,7 +347,7 @@ function updateCountdownAdmin() {
 
 function startPicks(){
   control.phaseDisplay = "picks"
-  control.timerTime = pickTimerInputElement
+  control.timerTime = pickTimerInputElement.value
   control.timerType = 2
   phaseDisplayElement.innerHTML = "Fase de: " + control.phaseDisplay
 
@@ -373,7 +387,7 @@ function updateCountdown() {
     if(control.phaseDisplay=="bans") {
       console.log("END BANS - player")
       timerElement.style.display="none"
-      endBans()
+      // endBans()
 
     } else if(control.phaseDisplay =="picks"){
       console.log("END PICKS - player")

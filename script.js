@@ -398,10 +398,15 @@ function markBans(){
 }
 
 function checkMirror(){
+    console.log("function check Mirror")
+    mirror = false
     bluePicks.forEach(bpick => {
+        console.log("bpick: " + bpick)
         if (!bpick.includes("square")) {
-            if (redPicks.includes(bpick)) return true
+            if (redPicks.includes(bpick)) {
+                mirror = true
+            }
         }
     });
-    return false
+    return mirror
 }

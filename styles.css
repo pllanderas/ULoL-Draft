@@ -26,6 +26,14 @@ h1 {
     color: #b99855;
 }
 
+#messages{
+    color: #b99855;
+}
+
+label {
+    color: #b99855;
+}
+
 #root{
     height: 100%;
     width: 70%;
