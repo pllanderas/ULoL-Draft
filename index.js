@@ -53,7 +53,7 @@ window.onload = function() {
   backgroundMusic.volume = 0.10
   banTimerInputElement.value = 90
   pickTimerInputElement.value = 120
-  document.body.style.cursor = "/assets/hand1.png"
+  // document.body.style.cursor = url("/assets/hand1.png")
   playMusic()
   hide_or_show("st","none")
   hide_or_show("st2","none")
