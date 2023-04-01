@@ -18,6 +18,7 @@ function clean(){
 }
 
 async function load(){
+    console.log("Load")
     const patchResponse = await fetch("https://ddragon.leagueoflegends.com/api/versions.json");
     var patchRaw = await patchResponse.json();
     currentPatch = patchRaw[0]
@@ -44,8 +45,11 @@ async function load(){
         img.src = "https://ddragon.leagueoflegends.com/cdn/" + currentPatch + "/img/champion/" + championsList[index] + ".png"
         img.classList.add("champImg")
         img.id = championsList[index]
-        img.id = img.id + " Wukong"
+        img.id = img.id
         if (championsList[index].includes("Monkey")){
+            img.id = img.id + " Wukong"
+            console.log("hola")
+            console.log(championsList[index])
             wukongId = index
         }
 
@@ -177,7 +181,11 @@ function imageListClick(element){
 
 function filterListResults(element){
     filter = element.value.toLowerCase()
+    console.log("Filter:")
+    console.log(championsList.length)
+
     for (let index = 0; index < championsList.length; index++) {
+        console.log(championsList[index])
         if(championsList[index].toLowerCase().includes(filter)){
             document.getElementById(championsList[index]).style.display = "initial"
         }else{
