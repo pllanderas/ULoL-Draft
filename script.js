@@ -38,20 +38,29 @@ async function load(){
     defaultImg.onclick = function () { imageListClick(this) }
     list.appendChild(defaultImg)
 
+    wukongId = -1
     for (let index = 0; index < championsList.length; index++) {
         var img = document.createElement("img")
         img.src = "https://ddragon.leagueoflegends.com/cdn/" + currentPatch + "/img/champion/" + championsList[index] + ".png"
         img.classList.add("champImg")
         img.id = championsList[index]
+        img.id = img.id + " Wukong"
+        if (championsList[index].includes("Monkey")){
+            wukongId = index
+        }
+
         img.onclick = function () { imageListClick(this) }
         list.appendChild(img)
     }
 
-    // var defaultImg = document.createElement("img")
-    // defaultImg.src = "./img/square.png"
-    // defaultImg.classList.add("champImg")
-    // defaultImg.onclick = function () { imageListClick(this) }
-    // list.appendChild(defaultImg)
+    var defaultImg = document.createElement("img")
+    defaultImg.src = "./img/comodin.png"
+    defaultImg.classList.add("champImg")
+    defaultImg.onclick = function () { imageListClick(this) }
+    list.appendChild(defaultImg)
+
+    championsList[wukongId] = "Wukong"
+
 }
 
 load()
