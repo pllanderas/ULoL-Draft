@@ -59,7 +59,7 @@ async function load(){
     defaultImg.onclick = function () { imageListClick(this) }
     list.appendChild(defaultImg)
 
-    championsList[wukongId] = "Wukong"
+    championsList[wukongId] = championsList[wukongId] + " Wukong"
 
 }
 
