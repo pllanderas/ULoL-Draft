@@ -50,13 +50,14 @@ window.onload = function() {
   chatTeamSelectorElement = document.getElementById("colorSelector");
   document.getElementById("message-form").addEventListener("submit", sendMessage);
   backgroundMusic.loop;
-  backgroundMusic.volume = 0.10
-  banTimerInputElement.value = 90
+  backgroundMusic.volume = 0.01
+  banTimerInputElement.value = 60
   pickTimerInputElement.value = 120
   // document.body.style.cursor = url("/assets/hand1.png")
   playMusic()
   hide_or_show("st","none")
   hide_or_show("st2","none")
+  checkboxes()
 }
 // var timerTime;
 

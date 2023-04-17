@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+
     <!-- <header>
         <h2>Firebase RealTime Chat</h2>
     </header>
@@ -30,6 +32,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
     <script src="index.js"></script>
     <script src="script.js"></script>
+    <script src="rolList.js"></script>
+
 
 
 
@@ -41,7 +45,7 @@
         <div class="container">
 
             <div class="header2 vertical information">
-        
+                <!-- <button onclick="applyGrayFilterToBannedChampions()"> Test </button> -->
                 <button class="blueButton blueTeam blueT2" onclick="joinBlue()"> Team 1 </button>
                 <button class="spectatorButton spec centerJ2" onclick="joinTotal()"> Arbitro </button>
                 <button class="redButton redTeam redT2" onclick="joinRed()"> Team 2 </button>
@@ -50,16 +54,51 @@
             </div>
 
             <div class="centerStart">
+                <div style="display: flex; justify-content: space-between;">
+                    <div class="l" >
+                        <label for="name1">Tanques</label>
+                        <input type="checkbox" id="tanques" name="name1">
+                    </div>
+                    <div class="l" >
+                        <label for="name2">Luchadores</label>
+                        <input type="checkbox" id="luchadores" name="name2">
+                    </div>
+                    <div class="l" >
+                        <label for="name3">Magos</label>
+                        <input type="checkbox" id="magos" name="name3">
+                    </div>
+                </div>
+            </div>
+            <div class="centerStart">
+                <div style="display: flex; justify-content: space-between;">
+                    <div class="l">
+                        <label for="name4">Tiradores</label>
+                        <input type="checkbox" id="tiradores" name="name4">
+                    </div>
+                    <div class="l">
+                        <label for="name5">Asesinos</label>
+                        <input type="checkbox" id="asesinos" name="name5">
+                    </div>
+                    <div class="l">
+                        <label for="name6">Apoyo</label>
+                        <input type="checkbox" id="apoyo" name="name6">
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+
+            <div class="centerStart st">
                     <button class="spectatorButton spec startButton st" onclick="start()"> StartBans </button>
                     <label class="spectatorButton spec startButton st" style="margin-left: 10px;"> Ban Timer: </label>
                     <input class="spectatorButton spec startButton st input" type="number" id="banTime"></input>
             </div>
-            <div class="centerStart">
+            <div class="centerStart st">
                     <button class="spectatorButton spec startButton st" onclick="startPicks()"> StartPicks </button>
                     <label class="spectatorButton spec startButton st2" style="margin-left: 10px;"> Pick Timer: </label>
                     <input class="spectatorButton spec startButton st2 input" type="number" id="pickTime"></input>
             </div>
-            <div class="centerStart">
+            <div class="centerStart st">
                 <button class="spectatorButton spec startButton st" onclick="startGame()"> StartGame </button>
             </div>
 
