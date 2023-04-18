@@ -287,6 +287,8 @@ function start(){
   //Restart bans and picks from last game
   db.ref("bans").remove()
   db.ref("picks").remove()
+  db.ref("messages").remove()
+
 
 
   //Admin time control
