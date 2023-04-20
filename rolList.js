@@ -73,7 +73,6 @@ var roleList = {
             "TahmKench",
             "Zac",
             "Nunu",
-            "Thresh",
             "Kassadin",
             "KSante"
       ],
@@ -222,6 +221,7 @@ var roleList = {
             "Yuumi",
             "Taric",
             "Zilean",
+            "Thresh",
             "Milio"
       ]
 }
