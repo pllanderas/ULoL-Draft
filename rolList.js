@@ -116,7 +116,8 @@ var roleList = {
             "Rumble",
             "Lillia",
             "Diana",
-            "Pantheon"
+            "Pantheon",
+            "Briar"
       ],
       "Magos": [
             "Anivia",
@@ -181,7 +182,8 @@ var roleList = {
             "Corki",
             "Teemo",
             "Graves",
-            "Kayle"
+            "Kayle",
+	    "Smolder"
       ],
       "Asesinos": [
             "Ahri",
