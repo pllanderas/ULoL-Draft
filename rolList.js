@@ -151,7 +151,8 @@ var roleList = {
             "Xerath",
             "Ziggs",
             "Zoe",
-            "Zyra"
+            "Zyra",
+            "Hwei"
       ],
       "Tiradores": [
             "Akshan",
@@ -183,7 +184,7 @@ var roleList = {
             "Teemo",
             "Graves",
             "Kayle",
-	    "Smolder"
+	      "Smolder"
       ],
       "Asesinos": [
             "Ahri",
@@ -207,7 +208,8 @@ var roleList = {
             "Zed",
             "Jayce",
             "MasterYi",
-            "Nocturne"
+            "Nocturne",
+            "Naafiri"
       ],
       "Apoyo": [
             "Bard",
